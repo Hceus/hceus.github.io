@@ -1,7 +1,6 @@
 body {
   margin: 0px auto;
   font-family: Fira sans;
-  max-width: 1200px;
 }
 ul {
   list-style-type: none;
@@ -72,7 +71,7 @@ h1 {
     border-radius: 4px;
     padding: 5px;
   }
-  li {
+  .menu li {
     background: #f5f5f5;
   }
 }
@@ -147,6 +146,41 @@ main {
   }
 }
 
+@media (max-width: 500px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .introducao h2::before {
+    width: 30px;
+    height: 10px;
+    left: 20px;
+    top: 600px;
+  }
+}
+
+@media (max-width: 400px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .intro img {
+    display: none;
+  }
+  .introducao {
+    grid-template-columns: 1fr;
+  }
+
+  .introducao h2 {
+    font-size: 3rem;
+  }
+
+  .introducao h2::before {
+    width: 30px;
+    height: 10px;
+    left: 14px;
+    top: 50px;
+  }
+}
+
 #experiencia {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -174,11 +208,12 @@ main {
 }
 
 .atuacao li {
-  background-color: #e5e5e5;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   margin: 1rem;
   border-radius: 4px;
+  position: relative;
 }
 
 .atuacao h3 {
@@ -187,8 +222,19 @@ main {
   width: 100%;
 }
 
+.itens::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(#b6f829, #67dd0a);
+  position: absolute;
+  left: -4px;
+  top: 15px;
+}
+
 .linguagem li {
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 4px;
   padding: 4px;
   margin: 3px;
@@ -220,26 +266,87 @@ main {
   font-size: 15px;
 }
 
+@media (max-width: 800px) {
+  #experiencia {
+    grid-template-columns: 1fr;
+  }
+  .artexp {
+    color: #141414;
+    font-size: 3rem;
+    text-transform: capitalize;
+    max-width: initial;
+  }
+  .dev {
+    font-size: 1.25rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .infolinguagem {
+    width: 100%;
+  }
+}
+
 #formacao {
-  background-color: #141414;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
   justify-items: center;
   margin: 0px;
 }
 
-.cursos {
-  color: white;
+.formacao-container {
+  max-width: 1200px;
+  padding: 100px 20px;
+  background-color: #141414;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column: 1 / -1;
 }
 
 .artform {
-  font-size: 7rem;
+  font-size: 8rem;
   word-break: break-all;
+  line-height: 1;
   margin-top: 0;
   color: black;
   text-transform: uppercase;
-  padding: 4rem;
+  padding: 0px 4rem;
   max-width: 4ch;
+}
+
+.dev2 {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  width: 75%;
+  margin-top: 0px;
+  margin-bottom: 5rem;
+  color: #a3a3a3;
+}
+
+.dev2 strong {
+  color: #ffffff;
+}
+
+@media (max-width: 800px) {
+  .formacao-container {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+  .artform {
+    color: #ffffff;
+    font-size: 3rem;
+    text-transform: capitalize;
+    max-width: initial;
+    justify-self: center;
+    margin: 0px;
+  }
+  .dev2 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    color: #a3a3a3;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 90%;
+  }
 }
 
 .academico {
@@ -252,60 +359,70 @@ main {
   border-radius: 4px;
   padding: 1rem;
   margin: 3px;
-  color: #e0e0e0;
-  font-size: 0.75rem;
+  color: #a3a3a3;
+  font-size: 0.875rem;
+  text-transform: uppercase;
   max-width: 15rem;
+  flex: 1;
 }
 
 .academico p {
   font-weight: bold;
   margin-bottom: 2rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-transform: capitalize;
+  position: relative;
+  color: #e0e0e0;
 }
 
-.dev2 {
-  font-size: 1.5rem;
-  width: 75%;
-  margin: 5rem 1rem;
-  color: #a3a3a3;
-}
-
-.dev2 strong {
-  color: #ffffff;
+.academico p::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(#b6f829, #67dd0a);
+  position: absolute;
+  left: -20px;
 }
 
 .estilo1 {
   color: #a3a3a3;
 }
 
-.outros {
-  margin: 2rem 0px;
-  font-size: 0.9rem;
-  color: #a3a3a3;
+.formacao-extra {
+  color: white;
+  padding: 3rem 0px;
 }
 
-.destaque {
-  color: #e0e0e0;
+.formacao-extra h3 {
+  color: #8f8f8f;
+  text-transform: uppercase;
 }
 
-.destaque1 {
-  color: #e0e0e0;
+.formacao-extra li {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
-.destaque2 {
-  color: #e0e0e0;
+.formacao-extra span {
+  color: #8f8f8f;
 }
 
-.destaque1::after {
-  content: " 56h";
-  display: inline flex;
-  color: #a3a3a3;
+.cursos-extra {
+  margin: 60px 0px;
 }
 
-.destaque2::after {
-  content: " 72h";
-  justify-content: end;
-  color: #a3a3a3;
+.cursos-extra li {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .formacao-extra {
+    padding: 1rem;
+  }
 }
 
 #contato {
